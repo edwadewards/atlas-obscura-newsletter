@@ -1,513 +1,789 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlas Obscura Newsletter</title>
+    <meta charset="utf-8"> <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+    <meta name="x-apple-disable-message-reformatting">  <!-- Disable auto-scale in iOS 10 Mail entirely -->
+    <title>Atlas Obscura</title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
+
+      html, body {
+        margin: 0 auto !important;
+        padding: 0 !important;
+        /* height: 100% !important; */
+        width: 100% !important;
+        background: #f1f1f1;
+      }
+
+      /* What it does: Stops email clients resizing small text. */
+      * {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      /* What it does: Stops Outlook from adding extra spacing to tables. */
+      table, td {
+        mso-table-lspace: 0pt !important;
+        mso-table-rspace: 0pt !important;
+      }
+
+      img {
+        -ms-interpolation-mode: bicubic;
+      }  
+
+      /* What it does: Fixes webkit padding issue. */
+      table {
+        border-spacing: 0 !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        margin: 0 auto !important;
+      }
+
+      /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Email Design specific styles */
+      .heading {
+        color: rgb(236, 76, 65);
+        text-transform: uppercase;
+        font-size: 1em;
+      }
+
+      .subheading {
+        color: rgb(85, 30, 30);
+        font-size: 1.5em;
+        margin: .35em 0 .75em;
+      }
+
+      .read-more {
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-top: .75em;
+        font-size: 1.15em;
+        color: #333;
+      }
+
+      .column {
+        display: inline-block; 
+        vertical-align: top;
+      }
+
+      @media(max-width: 598px) {
+        .mobile-column {
+          display: block;
+          text-align: center;
+          width: 100% !important;
+        }
+      }
+
+    </style>
+    <!--[if (mso 12)|(mso 16)]>
+      <style type="text/css">
+        .mso-container {
+          width: 578px;
+        }
+      </style>
+    <![endif]-->
 </head>
-<head>
-<style type="text/css">
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
-  body {
-		margin: 0;
-    padding: 0;
-		background-color: #cccccc;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-	}
-	table {
-		border-spacing: 0;
-	}
-	td {
-		padding: 0;
-    text-align: center;
-	}
-	img {
-		border: 0;
-    max-width: 100%;
-	}
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  p {
-    margin: 0;
-  }
-  .preheader { 
-    display: none !important; 
-    visibility: hidden; 
-    opacity: 0; 
-    color: transparent; 
-    height: 0; 
-    width: 0; 
-  }
-  .wrapper {
-		width: 100%;
-		table-layout: fixed;
-		background-color: #cccccc;
-		padding-bottom: 3.8rem;
-	}
-  .main {
-    background-color: #fff;
-		margin: 0 auto;
-		width: 100%;
-		max-width: 600px;
-		border-spacing: 0;
-    color: #333;
-  }
-  .heading {
-    color: rgb(236, 76, 65);
-    text-transform: uppercase;
-    font-size: 1rem;
-    margin: .75rem 0 .5rem;
-  }
-  .subheading {
-    color: rgb(85, 30, 30);
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  .read-more {
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-top: 10px;
-    display: block;
-  }
-  .arrow {
-    margin-left: 5px;
-    display: inline-block;
-  }
-  .uneven-columns {
-    background-color: #efee;
-    display: block;
-    margin: 25px 0;
-  }
-  .uneven-columns .column {
-    display: inline-block;
-    vertical-align: top;
-    padding: 14px;
-  }
-  .uneven-columns .column-sm {
-    max-width: 220px;
-  }
-  .uneven-columns .column-lg {
-    max-width: 360px;
-  }
-  .two-columns {
-    text-align: center;
-    font-size: 0;
-  }
-  .two-columns .column {
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    width: 100%;
-    max-width: 295px;
-    padding: 14px;
-  }
-  .two-columns-sm {
-    text-align: center;
-    font-size: 0;
-  }
-  .two-columns-sm .column {
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    padding: 28px 14px;
-  }
-</style>
-<style type="text/css">
-  @media (max-width: 598px) {
-    .uneven-columns .column-lg td {
-      text-align: center !important;
-    }
-  }
-</style>
-</head>
-<body>
-  
-  <center class="wrapper">
-    <table role="presentation" class="main" width="100%">
 
-      <span class="preheader" style="display: none !important; visibility: hidden; opacity: 0; color: transparent; height: 0; width: 0;">Please ring the "Fish Doorbell"</span>
+<body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #dad2d2; font-family: 'Roboto', sans-serif;">
 
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
+  <!-- Pre header text -->
+  <div style="display: none; height: 0px; width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
+    Please ring the "Fish Doorbell"
+  </div>  
+
+  <!-- Containing Table -->
+  <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto; max-width: 600px; background-color: #f1f1f1;" class="mso-container">
+
+    <tr>
+      <td>
+        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+            <td style="padding: .75em; text-align: center;">
+              <a href="https://www.atlasobscura.com/" target="_blank">
+                <img src="https://i.ibb.co/5LLRHzK/logo.png" alt="Atlas Obscura" border="0" width="220">
+              </a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>   
+
+    <tr>
+      <td>
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+            <td>
+              <img src="https://i.ibb.co/JyJ7zM1/fish.jpg" alt="close up of a fish" border="0" width="100%">  
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 14px;">
+              <span class="heading">Knock Knock, Who's There</span>
+              <h1 class="subheading">Please Ring the "Fish Doorbell"</h1>
+              <p>
+                Utrecht, the Netherlands’ fourth-largest city, is brimming with dams, locks, and canals. This means that the fish who migrate through the Dutch city are often stymied by these barriers. That’s where the “Fish Doorbell” comes in—a project enlisting the public’s help to ring the doorbell when fish are waiting, opening the lock and sending the fish through.
+              </p>
+              <a href="https://www.atlasobscura.com/articles/fish-doorbell-netherlands-website-utrecht" target="_blank" class="read-more">Read More</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>  
+
+    <!-- Column Sections Start -->
+    <tr>
+      <td>
+        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+
+          <!-- Ghost Table to create spacing in MSO -->
+          <!--[if mso]>
             <tr>
-              <td style="padding: 18px;">
-                <a href="https://www.atlasobscura.com/" target="_blank">
-                  <img src="https://i.ibb.co/5LLRHzK/logo.png" alt="Atlas Obscura logo" height="30">
-                </a>
-              </td>
+              <td style="padding: 24px;">
+                <table role="presentation" width="100%"></table>  
+              </td>    
             </tr>
-          </table>
-        </td>
+          <![endif]-->
+
+          <!-- First Column -->
+          <tr>
+            <td style="display: block; background-color: #efee; margin: 24px auto;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+
+                  <td width="40%" class="mobile-column">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column" width="100%" style="max-width: 300px;">
+                      <tr>
+                        <td style="padding: 14px;">
+                          <img src="https://i.ibb.co/r42dS2H/summer-snaps.jpg" alt="Dinosaur Mascot" width="200" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="60%" class="mobile-column">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column" width="100%">
+                      <tr>
+                        <td style="padding: 14px;">
+                          <span class="heading">Summer Snaps</span>
+                          <h2 class="subheading">A Photo Contest</h2>
+                          <p>We love celebrating roadside attractions! This summer, if you see a memorable one, submit a photo of it to us for a chance to win some amazing prizes.</p>
+                          <a href="https://www.atlasobscura.com/articles/summer-snaps-photo-contest-roadside-attractions?utm_source=Atlas+Obscura+Daily+Newsletter&utm_campaign=0fa6ad0fc9-EMAIL_CAMPAIGN_2023_06_12&utm_medium=email&utm_term=0_-0fa6ad0fc9-%5BLIST_EMAIL_ID%5D&mc_cid=0fa6ad0fc9" target="_blank" class="read-more">Read More</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Ghost Table to create spacing in MSO -->
+          <!--[if mso]>
+            <tr>
+              <td style="padding: 24px;">
+                <table role="presentation" width="100%"></table>  
+              </td>    
+            </tr>
+          <![endif]-->
+
+          <!-- Second Column -->
+          <tr>
+            <td style="display: block; background-color: #efee; margin: 24px auto;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+
+                  <td width="60%" class="mobile-column">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column" width="100%">
+                      <tr>
+                        <td style="padding: 14px;">
+                          <span class="heading">Gastro Obscura</span>
+                          <h2 class="subheading">Reshaping French Pastry</h2>
+                          <p>In New York City, baker Amadou Ly is bringing new life to almost-forgotten French traditions—specifically laminated dough.</p>
+                          <a href="https://www.atlasobscura.com/articles/alf-bakery-amadou-ly" target="_blank" class="read-more">Read More</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="40%" class="mobile-column">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column" width="100%" style="max-width: 300px;">
+                      <tr>
+                        <td style="padding: 14px;">
+                          <img src="https://i.ibb.co/c2YMrpL/gastro-obscura.jpg" alt="Chef baking pastries" width="200" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Ghost Table to create spacing in MSO -->
+          <!--[if mso]>
+            <tr>
+              <td style="padding: 24px;">
+                <table role="presentation" width="100%"></table>  
+              </td>    
+            </tr>
+          <![endif]-->
+
+          <!-- Third Column -->
+          <tr>
+            <td style="display: block; background-color: #efee; margin: 24px auto;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+
+                  <td width="40%" class="mobile-column">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column" width="100%" style="max-width: 300px;">
+                      <tr>
+                        <td style="padding: 14px;">
+                          <img src="https://i.ibb.co/pKsK8LW/view-point.jpg" alt="Art from cartographer Nils Hansell" width="200" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="60%" class="mobile-column">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column" width="100%">
+                      <tr>
+                        <td style="padding: 14px;">
+                          <span class="heading">Another Point of View</span>
+                          <h2 class="subheading">Mapping Local Lore</h2>
+                          <p>On a chart titled “The Wonders of New York,” cartographer Nils Hansell sketched out more than 300 diversions, including dragons, mermaids, and more wonders.</p>
+                          <a href="https://www.atlasobscura.com/articles/wonders-of-new-york-map" target="_blank" class="read-more">Read More</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        
+
+          <!-- Ghost Table to create spacing in MSO -->
+          <!--[if mso]>
+            <tr>
+              <td style="padding: 24px;">
+                <table role="presentation" width="100%"></table>  
+              </td>    
+            </tr>
+          <![endif]-->
+
+          <!-- Fourth Column -->
+          <tr>
+            <td style="display: block; background-color: #efee; margin: 24px auto;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" >
+                <tr>
+
+                  <td width="60%" class="mobile-column">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column" width="100%">
+                      <tr>
+                        <td style="padding: 14px;">
+                          <span class="heading">Atlas Obscura Courses</span>
+                          <h2 class="subheading">Taxidermy Techniques</h2>
+                          <p>In this 3-part lecture series, join taxidermist Allis Markham for step-by-step training in three distinct techniques used by museum professionals.</p>
+                          <a href="https://www.atlasobscura.com/experiences/taxidermy-techniques-course" target="_blank" class="read-more">Enroll Now</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="40%" class="mobile-column">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column" width="100%" style="max-width: 300px;">
+                      <tr>
+                        <td style="padding: 14px;">
+                          <img src="https://i.ibb.co/W5JCqhZ/courses.jpg" alt="Collection of fossilized animal parts" width="200" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>       
+    <!-- End Column -->
+
+    <!-- Ghost Table to create spacing in MSO -->
+    <!--[if mso]>
+      <tr>
+        <td style="padding: 20px;">
+          <table role="presentation" width="100%"></table>  
+        </td>    
       </tr>
+    <![endif]-->
 
+
+    <!-- Even Column Section -->
+    <td style="background-color: #f1f1f1;">
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr>
+          <td style="text-align: center;">
+            <h3 class="subheading">Explore The World</h3>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <!-- Even Column 1/3 -->
+    <tr>
+      <td style="display: block; background-color: #f1f1f1; margin: 14px auto 0;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+
+            <td width="50%" class="mobile-column">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column">
+                <tr>
+                  <td style="padding: 14px; text-align: center;">
+                    <span class="heading">Ohio</span>
+                    <h2 class="subheading">Is That Face In a Cliff?</h2>
+                    <a href="https://www.atlasobscura.com/places/wordens-ledges/" target="_blank">
+                      <img src="https://i.ibb.co/4ZrDYQr/ohio.jpg" alt="A face in a cliff" width="260">
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="50%" class="mobile-column">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column">
+                <tr>
+                  <td style="padding: 14px; text-align: center;">
+                    <span class="heading">Ecuador</span>
+                    <h2 class="subheading">Hello, Lonesome George</h2>
+                    <a href="https://www.atlasobscura.com/places/lonesome-george-charles-darwin-research-station-galapagos" target="_blank">
+                      <img src="https://i.ibb.co/LSfGdQf/ecuador.jpg" alt="Massive turtle in a museum" width="260">
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- Even Column 2/3 -->
+    <tr>
+      <td style="display: block; background-color: #f1f1f1; margin: 0 auto;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+
+            <td width="50%" class="mobile-column">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column">
+                <tr>
+                  <td style="padding: 14px; text-align: center;">
+                    <span class="heading">Italy</span>
+                    <h2 class="subheading">Bologna's Medieval Towers</h2>
+                    <a href="https://www.atlasobscura.com/places/towers-of-bologna" target="_blank">
+                      <img src="https://i.ibb.co/TT0s3S8/italy.jpg" alt="Artist impression of medieval Bologna" width="260">
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="50%" class="mobile-column">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column">
+                <tr>
+                  <td style="padding: 14px; text-align: center;">
+                    <span class="heading">Missouri</span>
+                    <h2 class="subheading">Have a Tipple at the Bat Bar</h2>
+                    <a href="https://www.atlasobscura.com/places/bat-bar-in-lost-canyon-cave" target="_blank">
+                      <img src="https://i.ibb.co/98Nd1W1/missouri.jpg" alt="Inside of a cave" width="260">
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- Even Column 3/3 -->
+    <tr>
+      <td style="display: block; background-color: #f1f1f1; margin: 0 auto 28px;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+
+            <td width="50%" class="mobile-column">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column">
+                <tr>
+                  <td style="padding: 14px; text-align: center;">
+                    <span class="heading">Antarctica</span>
+                    <h2 class="subheading">The Ocean's Most Remote Place</h2>
+                    <a href="https://www.atlasobscura.com/places/point-nemo" target="_blank">
+                      <img src="https://i.ibb.co/tLGKp0T/antarctica.png" alt="Google Earth view of Antarctica" width="260">
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="50%" class="mobile-column">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column">
+                <tr>
+                  <td style="padding: 14px; text-align: center;">
+                    <span class="heading">North Carolina</span>
+                    <h2 class="subheading">Celebrating Rare American Motorcycles</h2>
+                    <a href="https://www.atlasobscura.com/places/dales-wheels-through-time" target="_blank">
+                      <img src="https://i.ibb.co/JsXH4MV/n-carolina.jpg" alt="Motorcycles" width="260">
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- End Even Column Section -->
+
+    <!-- Ghost Table to create spacing in MSO -->
+    <!--[if mso]>
       <tr>
-        <td>
-          <table>
-            <tr>
-              <td>
-                <img src="https://i.ibb.co/JyJ7zM1/fish.jpg" alt="Photo of a fish">
-              </td>
-            </tr>
-            <tr>
-              <td style="text-align: left; padding: 14px;">
-                <p class="heading">Knock Knock, Who's There</p>
-                <p class="subheading">Please Ring the "Fish Doorbell"</p>
-                <p>Utrecht, the Netherlands’ fourth-largest city, is brimming with dams, locks, and canals. This means that the fish who migrate through the Dutch city are often stymied by these barriers. That’s where the “Fish Doorbell” comes in—a project enlisting the public’s help to ring the doorbell when fish are waiting, opening the lock and sending the fish through.</p>
-                <a href="https://www.atlasobscura.com/articles/fish-doorbell-netherlands-website-utrecht" target="_blank" class="read-more">Read More <span class="arrow"><svg width="24px" height="24px" viewBox="0 0 16.00 8.00" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8.64 5l2.5 2.5v.7l-2.5 2.5-.71-.7 1.64-1.65H4v-1h5.57L7.92 5.7l.72-.7z"></path></g></svg></span></a>
-              </td>
-            </tr>
-          </table>
-        </td>
+        <td style="padding: 20px;">
+          <table role="presentation" width="100%"></table>  
+        </td>    
       </tr>
+    <![endif]-->
 
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td class="uneven-columns">
-                <table class="column column-sm" role="presentation">
-                  <tr>
-                    <td>
-                      <img src="https://i.ibb.co/r42dS2H/summer-snaps.jpg" alt="Dinosaur Mascot" height="220">
-                    </td>
-                  </tr>
-                </table>
-                <table class="column column-lg" role="presentation">
-                  <tr>
-                    <td style="text-align: left;">
-                      <p class="heading">Summer Snaps</p>
-                      <p class="subheading">A Photo Contest</p>
-                      <p>We love celebrating roadside attractions! This summer, if you see a memorable one, submit a photo of it to us for a chance to win some amazing prizes.</p>
-                      <a href="https://www.atlasobscura.com/articles/summer-snaps-photo-contest-roadside-attractions?utm_source=Atlas+Obscura+Daily+Newsletter&utm_campaign=0fa6ad0fc9-EMAIL_CAMPAIGN_2023_06_12&utm_medium=email&utm_term=0_-0fa6ad0fc9-%5BLIST_EMAIL_ID%5D&mc_cid=0fa6ad0fc9" target="_blank" class="read-more">Read More <span class="arrow"><svg width="24px" height="24px" viewBox="0 0 16.00 8.00" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8.64 5l2.5 2.5v.7l-2.5 2.5-.71-.7 1.64-1.65H4v-1h5.57L7.92 5.7l.72-.7z"></path></g></svg></span></a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+            <td>
+              <img src="https://i.ibb.co/281Y5Xt/asheville.jpg" alt="Aerial View of Baltimore's Grounds and Gardens" width="100%">  
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 14px;">
+              <span class="heading">Sponsored By Explore Asheville</span>
+              <h2 class="subheading">10 Reasons to Explore Asheville During the Week</h2>
+              <p>
+                The creative heart of Western North Carolina, Asheville is filled with distinct art and culture, not to mention incredible food and beer. It’s one of the many reasons that travelers flock here in droves. However, a mid-week visit allows you to experience the city’s authenticity and gain direct access to what really makes this place tick: its people. Here are 10 places and ways to get to know Asheville unencumbered.
+              </p>
+              <a href="https://www.atlasobscura.com/articles/10-reasons-to-visit-asheville-during-the-week" target="_blank" class="read-more">Read More</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
 
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td class="uneven-columns">
-                <table role="presentation" class="column column-lg">
-                  <tr>
-                    <td style="text-align: left;">
-                      <p class="heading">Gastro Obscura</p>
-                      <p class="subheading">Reshaping French Pastry</p>
-                      <p>In New York City, baker Amadou Ly is bringing new life to almost-forgotten French traditions—specifically laminated dough.</p>
-                      <a href="https://www.atlasobscura.com/articles/alf-bakery-amadou-ly" target="_blank" class="read-more">Read More <span class="arrow"><svg width="24px" height="24px" viewBox="0 0 16.00 8.00" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8.64 5l2.5 2.5v.7l-2.5 2.5-.71-.7 1.64-1.65H4v-1h5.57L7.92 5.7l.72-.7z"></path></g></svg></span></a>
-                    </td>
-                  </tr>
-                </table>
-                <table role="presentation" class="column column-sm">
-                  <tr>
-                    <td>
-                      <img src="https://i.ibb.co/c2YMrpL/gastro-obscura.jpg" alt="Chef Cooking" height="220">
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+            <td>
+              <img src="https://i.ibb.co/WPstTbg/tower.jpg" alt="Post Office Tower in Washington" border="0" width="100%">  
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 14px;">
+              <span class="heading">Sponsored By Washington.org</span>
+              <h2 class="subheading">The Old Post Office Tower</h2>
+              <p>
+                Take in breathtaking views of Washington, D.C. from the Old Post Office Tower, the National Park Service's best-kept secret. From its observation deck, visitors can see the Washington Monument, the Capitol building, National Mall, and the Potomac River. Inside the tower, you can see the ropes that ring the Bells of Congress, the interior workings of the clock, and an exhibit about the Old Post Office Building’s history. Best of all, tours of the tower's observation deck are free year-round and do not require reservations.
+              </p>
+              <a href="https://www.atlasobscura.com/places/old-post-office-tower" target="_blank" class="read-more">Read More</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
 
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td class="uneven-columns">
-                <table role="presentation" class="column column-sm">
-                  <tr>
-                    <td>
-                      <img src="https://i.ibb.co/pKsK8LW/view-point.jpg" alt="Art Piece" height="220">
-                    </td>
-                  </tr>
-                </table>
-                <table role="presentation" class="column column-lg">
-                  <tr>
-                    <td style="text-align: left;">
-                      <p class="heading">Another Point of View</p>
-                      <p class="subheading">Mapping Local Lore</p>
-                      <p>On a chart titled “The Wonders of New York,” cartographer Nils Hansell sketched out more than 300 diversions, including dragons, mermaids, and more wonders.</p>
-                      <a href="https://www.atlasobscura.com/articles/wonders-of-new-york-map" target="_blank" class="read-more">Read More <span class="arrow"><svg width="24px" height="24px" viewBox="0 0 16.00 8.00" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8.64 5l2.5 2.5v.7l-2.5 2.5-.71-.7 1.64-1.65H4v-1h5.57L7.92 5.7l.72-.7z"></path></g></svg></span></a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+    <!-- Footer -->
+    <tr>
+      <td style="display: block; padding: 20px 6px; margin: 10px auto; border-top: 2px solid #dad2d2; border-bottom: 2px solid #dad2d2; background-color: #f1f1f1;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
 
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td class="uneven-columns">
-                <table role="presentation" class="column column-lg">
-                  <tr>
-                    <td style="text-align: left;">
-                      <p class="heading">Atlas Obscura Courses</p>
-                      <p class="subheading">Taxidermy Techniques</p>
-                      <p>In this 3-part lecture series, join taxidermist Allis Markham for step-by-step training in three distinct techniques used by museum professionals.</p>
-                      <a href="https://www.atlasobscura.com/experiences/taxidermy-techniques-course" target="_blank" class="read-more">Enroll Now <span class="arrow"><svg width="24px" height="24px" viewBox="0 0 16.00 8.00" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8.64 5l2.5 2.5v.7l-2.5 2.5-.71-.7 1.64-1.65H4v-1h5.57L7.92 5.7l.72-.7z"></path></g></svg></span></a>
-                    </td>
-                  </tr>
-                </table>
-                <table class="column column-sm">
-                  <tr>
-                    <td>
-                      <img src="https://i.ibb.co/W5JCqhZ/courses.jpg" alt="Collection of fossilized animal parts" height="220">
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td>
-                <p style="font-size: 1.6rem; color: rgb(85, 30, 30); text-align: center; font-weight: 700;">Explore the World</p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td class="two-columns">
-                <table role="presentation" class="column">
-                  <tr>
-                    <td>
-                      <p class="heading">Ohio</p>
-                      <p class="subheading">Is That a Face In a Cliff?</p>
-                      <a href="https://www.atlasobscura.com/places/wordens-ledges/" target="_blank">
-                        <img src="https://i.ibb.co/4ZrDYQr/ohio.jpg" alt="A face in a cliff">
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-                <table role="presentation" class="column">
-                  <tr>
-                    <td>
-                      <p class="heading">Ecuador</p>
-                      <p class="subheading">Hello, Lonesome George</p>
-                      <a href="https://www.atlasobscura.com/places/lonesome-george-charles-darwin-research-station-galapagos" target="_blank">
-                        <img src="https://i.ibb.co/LSfGdQf/ecuador.jpg" alt="Massive turtle in a museum">
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>  
-          </table>  
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td class="two-columns">
-                <table role="presentation" class="column">
-                  <tr>
-                    <td>
-                      <p class="heading">Missouri</p>
-                      <p class="subheading">Have a Tipple at the Bat Bar</p>
-                      <a href="https://www.atlasobscura.com/places/bat-bar-in-lost-canyon-cave" target="_blank">
-                        <img src="https://i.ibb.co/98Nd1W1/missouri.jpg" alt="Inside of a cave">
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-                <table role="presentation" class="column">
-                  <tr>
-                    <td>
-                      <p class="heading">Italy</p>
-                      <p class="subheading">Bologna's Medieval Towers</p>
-                      <a href="https://www.atlasobscura.com/places/towers-of-bologna" target="_blank">
-                        <img src="https://i.ibb.co/TT0s3S8/italy.jpg" alt="Artist impression of medieval Bologna">
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td class="two-columns">
-                <table role="presentation" class="column">
-                  <tr>
-                    <td>
-                      <p class="heading">Antarctica</p>
-                      <p class="subheading">The Ocean's Most Remote Place</p>
-                      <a href="https://www.atlasobscura.com/places/point-nemo" target="_blank">
-                        <img src="https://i.ibb.co/tLGKp0T/antarctica.png" alt="Google Earth view of Antarctica">
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-                <table role="presentation" class="column">
-                  <tr>
-                    <td>
-                      <p class="heading">North Carolina</p>
-                      <p class="subheading">Celebrating Rare American Motorcycles</p>
-                      <a href="https://www.atlasobscura.com/places/dales-wheels-through-time" target="_blank">
-                        <img src="https://i.ibb.co/JsXH4MV/n-carolina.jpg" alt="Motorcycles">
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <table role="presentation" width="100%" style="margin-top: 25px;">
-            <tr>
-              <td>
-                <img src="https://i.ibb.co/281Y5Xt/asheville.jpg" alt="Aerial View of Baltimore's Grounds and Gardens">
-              </td>
-            </tr>
-            <tr>
-              <td style="text-align: left; padding: 14px;">
-                <p class="heading">Sponsored by Explore Asheville</p>
-                <p class="subheading">10 Reasons to Visit Asheville During the Week</p>
-                <p>The creative heart of Western North Carolina, Asheville is filled with distinct art and culture, not to mention incredible food and beer. It’s one of the many reasons that travelers flock here in droves. However, a mid-week visit allows you to experience the city’s authenticity and gain direct access to what really makes this place tick: its people. Here are 10 places and ways to get to know Asheville unencumbered.</p>
-                <a href="https://www.atlasobscura.com/articles/10-reasons-to-visit-asheville-during-the-week" target="_blank" class="read-more">Read More <span class="arrow"><svg width="24px" height="24px" viewBox="0 0 16.00 8.00" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8.64 5l2.5 2.5v.7l-2.5 2.5-.71-.7 1.64-1.65H4v-1h5.57L7.92 5.7l.72-.7z"></path></g></svg></span></a>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td>
-                <img src="https://i.ibb.co/WPstTbg/tower.jpg" alt="Post Office Tower in Washington">
-              </td>
-            </tr>
-            <tr>
-              <td style="text-align: left; padding: 14px; border-bottom: 3px solid #eefe;">
-                <p class="heading">Sponsored by Washington.org</p>
-                <p class="subheading">The Old Post Office Tower</p>
-                <p>Take in breathtaking views of Washington, D.C. from the Old Post Office Tower, the National Park Service's best-kept secret. From its observation deck, visitors can see the Washington Monument, the Capitol building, National Mall, and the Potomac River. Inside the tower, you can see the ropes that ring the Bells of Congress, the interior workings of the clock, and an exhibit about the Old Post Office Building’s history. Best of all, tours of the tower's observation deck are free year-round and do not require reservations.</p>
-                <a href="https://www.atlasobscura.com/places/old-post-office-tower" target="_blank" class="read-more">Read More <span class="arrow"><svg width="24px" height="24px" viewBox="0 0 16.00 8.00" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8.64 5l2.5 2.5v.7l-2.5 2.5-.71-.7 1.64-1.65H4v-1h5.57L7.92 5.7l.72-.7z"></path></g></svg></span></a>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td class="two-columns-sm">
-                <table role="presentation" class="column">
-                  <tr>
-                    <td>
+            <td width="50%" style="text-align: right;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column">
+                <tr>
+                  <td style="text-align: center;  padding-left: 40px;">
+                    <table role="presentation" width="100%">
                       <a href="https://www.atlasobscura.com/join?cause=p_add&next=%2Fplaces%2Fnew" target="_blank">
-                        <img src="https://i.ibb.co/QmXChYd/location-icon.png" alt="Location Icon" height="30">
-                        <span style="display: block; font-size: .9rem; max-width: 17ch; margin-top: 8px;">Add a place to Atlas Obscura</span>
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-                <table role="presentation" class="column">
-                  <tr>
-                    <td>
+                        <img src="https://i.ibb.co/QmXChYd/location-icon.png" alt="Location Icon" height="30" style="display: block; margin: 4px auto;">
+                      </a>  
+                      <a href="https://www.atlasobscura.com/join?cause=p_add&next=%2Fplaces%2Fnew" target="_blank">
+                        <span style="font-size: .9em; display: block;">Add a place to Atlas <br> Obscura</span>
+                      </a>  
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="50%">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column">
+                <tr>
+                  <td style="text-align: center; padding-right: 40px;">
+                    <table role="presentation" width="100%">
                       <a href="https://www.atlasobscura.com/newsletters" target="_blank">
-                        <img src="https://i.ibb.co/KD3R6h7/megaphone-icon.png" alt="Megaphone Icon" height="30">
-                        <span style="display: block; font-size: .9rem; max-width: 17ch; margin-top: 8px;">Subscribe to our other newsletters</span>
-                      </a>
-                    </td>
+                        <img src="https://i.ibb.co/KD3R6h7/megaphone-icon.png" alt="Megaphone Icon" height="30" style="display: block; margin: 4px auto;">
+                      </a>  
+                      <a href="https://www.atlasobscura.com/newsletters" target="_blank">
+                        <span style="font-size: .9em; display: block;">Subscribe to our <br> other newsletters</span>
+                      </a> 
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+          </tr>
+        </table>
+
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column" width="100%">
+          <tr>
+            <td>
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="column" width="100%">
+                <tr>
+                  <td style="padding: 22px 6px 12px; text-align: center;">
+                    <table role="presentation" width="100%" style="text-align: center;">
+                      <h3 class="subheading">The Definitive Guide to the World's Hidden Wonders</h3>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+            <td width="100%" style="text-align: center;">
+
+              <!--[if mso | IE]>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr><td>
+              <![endif]-->
+
+                  <!-- Social link columns -->
+                  <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float: none; display: inline-table;">
+                    <tr>
+                      <td style="padding: 8px;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 24px;">
+                          <tr>
+                            <td style="font-size: 0; height: 24px; width:24px; vertical-align: middle;">
+                              <a href="https://www.facebook.com/atlasobscura/" target="_blank">
+                                <img src="https://i.ibb.co/GcD6pH8/facebook.png" alt="facebook logo" height="24" width="24">
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+              <!--[if mso | IE]>
+                </td>
+            
+                <td>
+              <![endif]-->    
+
+                  <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float: none; display: inline-table;">
+                    <tr>
+                      <td style="padding: 8px;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 24px;">
+                          <tr>
+                            <td style="font-size: 0; height: 24px; width: 24px; vertical-align: middle;">
+                              <a href="https://twitter.com/atlasobscura?mc_eid=860609a00d" target="_blank">
+                                <img src="https://i.ibb.co/7YqQ1Tr/twitter.png" alt="twitter logo" height="24" width="24">
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                <!--[if mso | IE]>
+                  </td>
+            
+                  <td>
+                <![endif]-->    
+
+                  <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float: none; display: inline-table;">
+                    <tr>
+                      <td style="padding: 8px;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 24px;">
+                          <tr>
+                            <td style="font-size: 0; height: 24px; width: 24px; vertical-align: middle;">
+                              <a href="https://www.instagram.com/atlasobscura/" target="_blank">
+                                <img src="https://i.ibb.co/t2X4czW/instagram.png" alt="instagram logo" height="24" width="24">
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                <!--[if mso | IE]>
+                  </td>
+            
+                  <td>
+                <![endif]-->  
+
+                  <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float: none; display: inline-table;">
+                    <tr>
+                      <td style="padding: 8px;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 24px;">
+                          <tr>
+                            <td style="font-size: 0; height: 24px; width:24px; vertical-align: middle;">
+                              <a href="https://www.youtube.com/user/atlasobscura" target="_blank">
+                                <img src="https://i.ibb.co/tXGND6b/youtube.png" alt="youtube logo" height="24" width="24">
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <!--[if mso | IE]>
+                              </td>
+                            </tr>
+                          </table>
+                        <![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- End social link columns -->
+
+                <!--[if mso | IE]>
+                      </td>
                   </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </table>
 
-      <tr>
-        <td>
-          <table role="presentation" width="100%">
-            <tr>
-              <td>
-                <p style="margin: 16px 12px 22px; font-size: 1.5rem; color: rgb(85, 30, 30); font-weight: 700;">The Definitive Guide to the World's Hidden Wonders</p>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding-bottom: 20px; border-bottom: 3px solid #eefe;">
-                <a href="https://www.facebook.com/atlasobscura/" target="_blank" style="margin-right: 14px;">
-                  <img src="https://i.ibb.co/GcD6pH8/facebook.png" alt="facebook logo" height="20">
-                </a>
-                <a href="https://twitter.com/atlasobscura?mc_eid=860609a00d" target="_blank" style="margin-right: 14px;">
-                  <img src="https://i.ibb.co/7YqQ1Tr/twitter.png" alt="twitter logo" height="20">
-                </a>
-                <a href="https://www.instagram.com/atlasobscura/" target="_blank" style="margin-right: 14px;">
-                  <img src="https://i.ibb.co/t2X4czW/instagram.png" alt="instagram logo" height="20">
-                </a>
-                <a href="https://www.youtube.com/user/atlasobscura" target="_blank">
-                  <img src="https://i.ibb.co/tXGND6b/youtube.png" alt="youtube logo" height="20">
-                </a>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+      </td>
+    </tr>
 
-      <tr>
-        <td>
-          <table role="presentation" width="100%" style="padding: 20px 5px;">
-            <tr>
-              <td style="font-size: .75rem; color: rgb(85, 30, 30);">
-                <a href="https://www.atlasobscura.com/" target="_blank" style="margin-right: 10px; text-decoration: underline;">Visit AtlasObscura.com</a>
-                <a href="https://mailchi.mp/atlasobscura.com/please-ring-the-fish-doorbell?e=860609a00d" target="_blank" style="margin-right: 10px; text-decoration: underline;">View in Browser</a>
-                <a href="https://atlasobscura.us1.list-manage.com/unsubscribe/post" target="_blank" style="margin-right: 10px; text-decoration: underline;">Subscribe</a>
-                <a href="https://www.atlasobscura.com/newsletters" target="_blank" style="text-decoration: underline;">See All Newsletters</a>
-              </td>
-            </tr>
-            <tr>
-              <td style="font-size: .75rem;">
-                <p style="margin-top: 12px;">61 Greenpoint Ave #210, Brooklyn, NY 11222</p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+    <!-- Footer Links Column -->
+    <tr>
+      <td>
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f1f1f1;">
+          <tr>
+            <td width="100%" style="text-align: center;">
+    
+              <!--[if mso | IE]>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"><tr><td>
+              <![endif]-->
+    
+                  <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float: none; display: inline-table;">
+                    <tr>
+                      <td style="padding: 4px; font-size: .8em;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                          <tr>
+                            <td style="vertical-align: middle;">
+                              <a href="https://www.atlasobscura.com/" target="_blank" style="text-decoration: underline;">Visit AtlasObscura.com</a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+    
+              <!--[if mso | IE]>
+                </td>
+            
+                <td>
+              <![endif]-->    
+    
+                  <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float: none; display: inline-table;">
+                    <tr>
+                      <td style="padding: 4px; font-size: .8em;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                          <tr>
+                            <td style="vertical-align: middle;">
+                              <a href="https://mailchi.mp/atlasobscura.com/please-ring-the-fish-doorbell?e=860609a00d" target="_blank" style="text-decoration: underline;">View in Browser</a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+    
+              <!--[if mso | IE]>
+                </td>
+          
+                <td>
+              <![endif]-->    
+    
+                  <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float: none; display: inline-table;">
+                    <tr>
+                      <td style="padding: 4px; font-size: .8em;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                          <tr>
+                            <td style="vertical-align: middle;">
+                              <a href="https://atlasobscura.us1.list-manage.com/unsubscribe/post" target="_blank" style="text-decoration: underline;">Subscribe</a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+    
+              <!--[if mso | IE]>
+                </td>
+          
+                <td>
+              <![endif]-->  
+    
+                  <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float: none; display: inline-table;">
+                    <tr>
+                      <td style="padding: 4px; font-size: .8em;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                          <tr>
+                            <td style="vertical-align: middle;">
+                              <a href="https://www.atlasobscura.com/newsletters" target="_blank" style="text-decoration: underline;">See All Newsletters</a>
+                            </td>
+                          </tr>
+                        </table>
+                <!--[if mso | IE]>
+                      </td>
+                    </tr>
+                  </table>
+                <![endif]-->
+              <!-- End social link columns -->
+    
+                <!--[if mso | IE]>
+                      </td>
+                  </tr>
+                  </table>
+                <![endif]-->
+    
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size: .75em; text-align: center; padding: 4px;">
+              <table role="presentation" width="100%" style="text-align: center;">
+                <p style="margin: 0;">61 Greenpoint Ave #210, Brooklyn, NY 11222</p>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- end footer -->
 
-    </table>
-  </center>
-</body>
+
+  <!-- End Containing Table -->   
+  </table>
+  
+</body>    
